@@ -1,0 +1,181 @@
+/* 
+---------------------------------------------
+welcome area
+--------------------------------------------- 
+*/
+
+.welcome-area {
+	min-height: 637px;
+	height: auto;
+	position: relative;
+
+	.welcome-bg {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+
+		&:before {
+			content: '';
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			opacity: 0.85;
+			background-image: linear-gradient(127deg, $gradientDark 0%, $gradientLight 91%);
+			z-index: 3;
+		}
+
+		&:after {
+			content: '';
+			position: absolute;
+			width: 100%;
+			height: 50%;
+			bottom: 0px;
+			left: 0px;
+			right: 0px;
+			background: none;
+			z-index: 6;
+		}
+
+		.welcome-clip {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			z-index: 5;
+			background: url('../images/bg-bottom.svg') bottom center no-repeat;
+			bottom: 0px;
+		}
+	}
+
+	.welcome-content {
+		position: absolute;
+		width: 100%;
+		top: 30%;
+		left: 0;
+		z-index: 11;
+		transform: perspective(1px) translateY(0%);
+
+		h1 {
+			@include font($normal, 36px);
+			line-height: 50px;
+			letter-spacing: 1.4px;
+			color: #fff;
+			margin-bottom: 30px !important;
+		}
+
+		p {
+			@include font($normal, 16px);
+			line-height: 30px;
+			letter-spacing: .88px;
+			left: 0.53px;
+			color: #fff;
+			margin-bottom: 30px;
+		}
+
+		.apps {
+			padding-top: 30px;
+
+			.app-item {
+				display: block;
+				height: 70px;
+				margin-bottom: 30px;
+				@include transition(.3s);
+				position: relative;
+
+				&:hover {
+
+					.base {
+						strong {
+							margin-left: 40px;
+						}
+					}
+				}
+
+				.icon {
+					width: 70px;
+					float: left;
+					position: relative;
+					z-index: 2;
+				}
+
+				.base {
+					position: absolute;
+					float: left;
+					width: calc(100% - 60px);
+					height: 60px;
+					background: #fff;
+					box-shadow: 0 2px 48px 0 rgba(0,0,0,0.06);
+					border-radius: 5px;
+					top: 5px;
+					right: 0px;
+					z-index: 1;
+					overflow: hidden;
+
+					&:before {
+						content: '';
+						position: absolute;
+						width: 100%;
+						height: 3px;
+						bottom: 0px;
+						background-image: linear-gradient(127deg, $gradientDark 0%, $gradientLight 91%);
+					}
+
+					strong {
+						float: left;
+						height: 60px;
+						line-height: 60px;
+						margin-left: 30px;
+						@include font($normal, 16px);
+						letter-spacing: 0.7px;
+						color: $headingDark;
+						@include transition(.3s);
+					}
+
+					.platforms {
+						float: right;
+						height: 60px;
+						margin-right: 20px;
+
+						i {
+							float: left;
+							height: 60px;
+							line-height: 60px;
+							margin-left: 5px;
+							margin-right: 5px;
+							font-size: 16px;
+							color: #C4C7F1;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (max-width : 991px) {
+	.welcome-area {
+
+		.welcome-content {
+			position: relative;
+			-webkit-transform: translateY(0%) !important;
+			transform: translateY(0%) !important;
+			padding-top: 100px;
+
+			h1 {
+				font-size: 26px !important;
+				line-height: 36px !important;
+			}
+
+			.apps {
+				margin-top: 30px;
+				
+				.app-item {
+					margin-bottom: 10px;
+				}
+			}
+		}
+	}
+}
